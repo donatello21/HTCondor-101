@@ -1,0 +1,38 @@
+executable   = /bin/wc
+arguments    = -l datos-adultos-us.csv
+
+transfer_input_files = datos-adultos-us.csv
+
+output       = estadistica.txt
+error        = error.$(cluster).$(process).nodo2_1.submit
+log          = log.$(cluster).$(process).nodo2_1.submit
+
+should_transfer_files = yes
+
+queue
+
+executable   = /bin/grep
+arguments    = -c ? datos-adultos-us.csv
+
+transfer_input_files = datos-adultos-us.csv
+
+output       = estadistica.txt
+error        = error.$(cluster).$(process).nodo2_2.submit
+log          = log.$(cluster).$(process).nodo2_2.submit
+
+should_transfer_files = yes
+
+queue
+
+executable   = /bin/sed
+arguments    = -i s/?//g datos-adultos-us.csv
+
+transfer_input_files = datos-adultos-us.csv
+
+output       = output.$(cluster).$(process).nodo2_3.submit
+error        = error.$(cluster).$(process).nodo2_3.submit
+log          = log.$(cluster).$(process).nodo2_3.submit
+
+should_transfer_files = yes
+
+queue

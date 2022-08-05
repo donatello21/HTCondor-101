@@ -1,0 +1,9 @@
+JOB nodo1 nodo1.condor
+JOB nodo2 nodo2.condor
+JOB nodo3 nodo3.condor
+JOB nodo4 nodo4.condor
+JOB nodo5 nodo5.condor
+JOB nodo6 nodo6.condor
+PARENT nodo1 CHILD nodo2
+PARENT nodo2 CHILD nodo3
+PARENT nodo3 CHILD nodo4 nodo5 nodo6

@@ -1,0 +1,23 @@
+executable   = /bin/echo
+arguments    = age,workclass,fnlwgt,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,native-country,class
+
+output       = header.csv
+error        = error.$(cluster).$(process).nodo3_1.submit
+log          = log.$(cluster).$(process).nodo3_1.submit
+
+should_transfer_files = yes
+
+queue
+
+executable   = /bin/cat
+arguments    = header.csv datos-adultos-us.csv
+
+transfer_input_files = header.csv, datos-adultos-us.csv
+
+output       = datos-adultos-us.csv
+error        = error.$(cluster).$(process).nodo3_2.submit
+log          = log.$(cluster).$(process).nodo3_2.submit
+
+should_transfer_files = yes
+
+queue

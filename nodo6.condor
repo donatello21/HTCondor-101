@@ -1,0 +1,12 @@
+executable   = /bin/cut
+arguments    = -d , -f 6,7,10 datos-adultos-us.csv 
+
+transfer_input_files = datos-adultos-us.csv
+
+output       = reporte_3.txt
+error        = error.$(cluster).$(process).nodo6_1.submit
+log          = log.$(cluster).$(process).nodo6_1.submit
+
+should_transfer_files = yes
+
+queue

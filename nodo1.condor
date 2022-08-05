@@ -1,0 +1,11 @@
+executable   = /bin/curl
+arguments    = -o datos-adultos-us.csv http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data 
+
+output       = output.nodo1.submit
+error        = error.nodo1.submit
+log          = log.nodo1.submit
+
+should_transfer_files = yes
+
+queue
+
